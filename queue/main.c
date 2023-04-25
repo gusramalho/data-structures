@@ -26,6 +26,48 @@ void print_queue(Queue *queue) {
     );
 }
 
+void test_dequeue_deallocation_memory_2() {
+    Queue *q = new_queue();
+
+    enqueue(q, 1);
+    enqueue(q, 2);
+    enqueue(q, 3);
+    enqueue(q, 4);
+    enqueue(q, 5);
+    enqueue(q, 6);
+    enqueue(q, 7);
+    enqueue(q, 8);
+    enqueue(q, 9);
+    enqueue(q, 10);
+    enqueue(q, 11);
+    enqueue(q, 12);
+    enqueue(q, 13);
+    enqueue(q, 14);
+    enqueue(q, 15);
+    enqueue(q, 16);
+
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    enqueue(q, 17);
+    enqueue(q, 18);
+
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    enqueue(q, 19);
+    enqueue(q, 20);
+    print_queue(q);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+    printf("Dequeuing %d\n", dequeue(q).result);
+
+    print_queue(q);
+}
+
 void test_dequeue_deallocation_memory() {
     Queue *q = new_queue();
 
@@ -160,5 +202,5 @@ int test_enqueue() {
 }
 
 int main() {
-    test_dequeue_deallocation_memory();
+    test_dequeue_deallocation_memory_2();
 }

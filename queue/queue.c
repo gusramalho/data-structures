@@ -42,7 +42,7 @@ QueueResult enqueue(Queue *queue, int data) {
     }
 
     if (queue->size >= queue->allocated_memory) {
-        printf("Alocando memoria...\n");
+        printf("\tAlocando memoria...\n");
         int previous_allocated_memory = queue->allocated_memory;
 
         queue->allocated_memory += QUEUE_BLOCK; 
@@ -92,7 +92,7 @@ QueueResult dequeue(Queue *queue) {
     queue->size--;
 
     if (queue->allocated_memory - queue->size >= 2 * QUEUE_BLOCK) {
-        printf("============ Desalocando memoria...");
+        printf("\tDesalocando memoria...\n");
 
         if (queue->last >= queue->first) {
             for (int i = queue->first; i <= queue->last; i++) {
